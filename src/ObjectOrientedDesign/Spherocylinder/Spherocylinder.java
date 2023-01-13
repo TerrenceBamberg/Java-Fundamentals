@@ -4,6 +4,8 @@ import java.text.DecimalFormat;
 
 /**
  * Represents a spherocylinder with a label, radius, and cylinder height.
+ * Provides methods for calculating the circumference, surface area, and volume.
+ *
  * @author Terrence Bamberg - CPSC 1223 AO2
  * @version 10/23/2019
  */
@@ -16,9 +18,9 @@ public class Spherocylinder {
 
     /**
      * Constructor sets label, radius and cylinder of spherocylinder object.
-     * @param labelIn for spherocylinder label attribute
-     * @param radiusIn for radius attribute
-     * @param cylinderHeightIn for cylinder height attribute
+     * @param labelIn spherocylinder label attribute
+     * @param radiusIn radius attribute
+     * @param cylinderHeightIn cylinder height attribute
      */
     public Spherocylinder(String labelIn, double radiusIn,double cylinderHeightIn) {
         setLabel(labelIn);
@@ -36,13 +38,13 @@ public class Spherocylinder {
     }
 
     /**
-     * Instance method to set label of spherocylinder.
-     * @param labelIn for label
+     * Instance method to set label of spherocylinder if not null and not empty.
+     * @param labelIn spherocylinder label
      * @return true if label was set
      */
     public Boolean setLabel(String labelIn) {
         boolean isSet = false;
-        if (labelIn != null) {
+        if (labelIn != null && !labelIn.equals("")) {
             label = labelIn.trim();
             isSet = true;
         }
@@ -59,7 +61,7 @@ public class Spherocylinder {
 
     /**
      * Instance method to set radius of spherocylinder if non-negative.
-     * @param radiusIn for radius
+     * @param radiusIn spherocylinder radius
      * @return true if radius was set
      */
     public boolean setRadius(double radiusIn) {
@@ -81,7 +83,7 @@ public class Spherocylinder {
 
     /**
      * Instance method to set cylinder height of spherocylinder if non-negative.
-     * @param cylinderHeightIn for cylinder height
+     * @param cylinderHeightIn spherocylinder height
      * @return true if cylinder height was set
      */
     public boolean setCylinderHeight(double cylinderHeightIn) {
@@ -94,7 +96,7 @@ public class Spherocylinder {
     }
 
     /**
-     * Instance method to calculate circumference of spherocylinder.
+     * Instance method to calculate circumference of a spherocylinder.
      * @return circmf
      */
     public double circumference() {
@@ -103,19 +105,20 @@ public class Spherocylinder {
     }
 
     /**
-     * Instance method to calculate surface area of spherocylinder.
+     * Instance method to calculate surface area of a spherocylinder.
      * @return surfArea
      */
     public double surfaceArea() {
-        return 2 * Math.PI * radius * (2 * radius + cylinderHeight);
+       return cylinderHeight != 0 ? 2 * Math.PI * radius * (2 * radius + cylinderHeight) : 0;
     }
 
     /**
-     * Instance method to calculate volume of spherocylinder.
+     * Instance method to calculate volume of a spherocylinder.
      * @return vol
      */
     public double volume() {
-        return Math.PI * Math.pow(radius, 2) * ((4.0 / 3) * radius + cylinderHeight);
+        return cylinderHeight != 0 ? Math.PI * Math.pow(radius, 2)
+                * ((4.0 / 3) * radius + cylinderHeight) : 0;
     }
 
     /**
@@ -134,10 +137,11 @@ public class Spherocylinder {
     }
 
     /**
-     * Instance method to see if two spherocylinder objects have the same values.
-     * @param sObj for a spherocylinder object
+     * Overriding equals method to compare spherocylinder objects.
+     * @param sObj spherocylinder object to compare
      * @return false if not a spherocylinder or values are not the same and true if matching values
      */
+    @Override
     public boolean equals(Object sObj) {
         if (!(sObj instanceof Spherocylinder)) {
             return false;
@@ -148,6 +152,15 @@ public class Spherocylinder {
                     && Math.abs(radius - sp.getRadius()) < .000001
                     && Math.abs(cylinderHeight - sp.getCylinderHeight()) < .000001);
         }
+    }
+
+    /**
+     * Overriding hashcode method for hashing to establish object equivalence.
+     * @return hashcode value of 0
+     */
+    @Override
+    public int hashCode() {
+        return 0;
     }
 
     /**
