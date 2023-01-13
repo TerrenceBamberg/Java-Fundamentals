@@ -142,7 +142,6 @@ class SpherocylinderTest {
         assertEquals(1, obj.compareTo(obj2));
         assertEquals(-1, obj3.compareTo(obj));
         assertEquals(0, obj.compareTo(obj4));
-
     }
 
     /** toString test **/

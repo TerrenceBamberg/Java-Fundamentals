@@ -194,5 +194,4 @@ public class Spherocylinder implements Comparable<Spherocylinder> {
                 + "\n\tsurface area = " + fmt.format(surfaceArea()) + " square units"
                 + "\n\tvolume = " + fmt.format(volume()) + " cubic units";
     }
-
 }
