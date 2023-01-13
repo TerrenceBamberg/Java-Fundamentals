@@ -1,4 +1,4 @@
-## A collection of coursework projects to solidify core Java concepts
+## A collection of coursework projects to solidify Core Java concepts
 
 
 
