@@ -14,12 +14,14 @@ class SpherocylinderTest {
     void setUp() {
     }
 
+    /** Get label test **/
     @org.junit.jupiter.api.Test
     void getLabel() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
         assertEquals("Example Test", obj.getLabel());
     }
 
+    /** Set label test **/
     @org.junit.jupiter.api.Test
     void setLabel() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
@@ -28,12 +30,14 @@ class SpherocylinderTest {
         assertFalse(obj.setLabel(""));
     }
 
+    /** Get radius test **/
     @org.junit.jupiter.api.Test
     void getRadius() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
         assertEquals(5, obj.getRadius(), 0.001);
     }
 
+    /** Set radius test **/
     @org.junit.jupiter.api.Test
     void setRadius() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
@@ -42,12 +46,14 @@ class SpherocylinderTest {
         assertFalse(obj.setRadius(-2));
     }
 
+    /** Get cylinder height test **/
     @org.junit.jupiter.api.Test
     void getCylinderHeight() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
         assertEquals(10, obj.getCylinderHeight(), 0.001);
     }
 
+    /** Set cylinder height test **/
     @org.junit.jupiter.api.Test
     void setCylinderHeight() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
@@ -56,6 +62,7 @@ class SpherocylinderTest {
         assertFalse(obj.setCylinderHeight(-320));
     }
 
+    /** Circumference calculation test **/
     @org.junit.jupiter.api.Test
     void circumference() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
@@ -66,6 +73,7 @@ class SpherocylinderTest {
         assertEquals(0, obj3.circumference(), 0.001);
     }
 
+    /** Surface area calculation test **/
     @org.junit.jupiter.api.Test
     void surfaceArea() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
@@ -78,6 +86,7 @@ class SpherocylinderTest {
         assertEquals(0, obj4.surfaceArea(), 0.001);
     }
 
+    /** Volume calculation test **/
     @org.junit.jupiter.api.Test
     void volume() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
@@ -90,11 +99,13 @@ class SpherocylinderTest {
         assertEquals(0, obj4.volume(), 0.001);
     }
 
+    /** Spherocylinder count test **/
     @org.junit.jupiter.api.Test
     void getCount() {
         assertEquals(22, Spherocylinder.getCount());
     }
 
+    /** Reset spherocylinder count test **/
     @org.junit.jupiter.api.Test
     void resetCount() {
         Spherocylinder.resetCount();
@@ -102,6 +113,7 @@ class SpherocylinderTest {
             Spherocylinder.getCount());
     }
 
+    /** Object equality test **/
     @org.junit.jupiter.api.Test
     void testEquals() {
         Spherocylinder obj1 = new Spherocylinder("Example Test", 5, 10);
@@ -111,6 +123,7 @@ class SpherocylinderTest {
         assertEquals(obj1,obj3);
     }
 
+    /** Hashcode value test **/
     @org.junit.jupiter.api.Test
     void testHashCode() {
         Spherocylinder obj1 = new Spherocylinder("Example Test", 5, 10);
@@ -119,6 +132,20 @@ class SpherocylinderTest {
         assertEquals(0, obj2.hashCode());
     }
 
+    /** Compare to test **/
+    @org.junit.jupiter.api.Test
+    void testCompareTo() {
+        Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
+        Spherocylinder obj2 = new Spherocylinder("Example Test2", -5, 10);
+        Spherocylinder obj3 = new Spherocylinder("Example Test3", 5, -10);
+        Spherocylinder obj4 = new Spherocylinder("Example Test4", 5, 10);
+        assertEquals(1, obj.compareTo(obj2));
+        assertEquals(-1, obj3.compareTo(obj));
+        assertEquals(0, obj.compareTo(obj4));
+
+    }
+
+    /** toString test **/
     @org.junit.jupiter.api.Test
     void testToString() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);

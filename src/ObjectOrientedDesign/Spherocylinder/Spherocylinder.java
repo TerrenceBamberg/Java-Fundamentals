@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
  * @version 10/23/2019
  */
 
-public class Spherocylinder {
+public class Spherocylinder implements Comparable<Spherocylinder> {
     private String label = "";
     private double radius = 0;
     private double cylinderHeight = 0;
@@ -164,6 +164,24 @@ public class Spherocylinder {
     }
 
     /**
+     * Overriding compareTo method for comparing spherocylinder objects based on volume.
+     * @param obj spherocylinder object to compare
+     * @return int (-) if smaller volume1 < volume 2, (+) if volume1 > volume2
+     */
+    @Override
+    public int compareTo(Spherocylinder obj) {
+        if (this.volume() < obj.volume()) {
+            return -1;
+        }
+        else if (this.volume() > obj.volume()) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    /**
      * Instance method to represent spherocylinder object as a string.
      * @return output
      */
@@ -176,4 +194,5 @@ public class Spherocylinder {
                 + "\n\tsurface area = " + fmt.format(surfaceArea()) + " square units"
                 + "\n\tvolume = " + fmt.format(volume()) + " cubic units";
     }
+
 }
