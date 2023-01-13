@@ -25,6 +25,23 @@ class SpherocylinderTest {
     @org.junit.jupiter.api.Test
     void setLabel() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
+
+        // conditional test: valid
+        String label = "Example Test2";
+        boolean set = obj.setLabel(label);
+        assertTrue(set);
+
+        // conditional test: null
+        label = null;
+        set = obj.setLabel(label);
+        assertFalse(set);
+
+        // conditional test: empty string
+        label = "";
+        set = obj.setLabel(label);
+        assertFalse(set);
+
+        // method tests
         assertTrue(obj.setLabel("New Label Test"));
         assertFalse(obj.setLabel(null));
         assertFalse(obj.setLabel(""));
@@ -41,6 +58,23 @@ class SpherocylinderTest {
     @org.junit.jupiter.api.Test
     void setRadius() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
+
+        // conditional test: > 0
+        double radius = 22;
+        boolean set = obj.setRadius(radius);
+        assertTrue(set);
+
+        // conditional test: == 0
+        radius = 0;
+        set = obj.setRadius(radius);
+        assertTrue(set);
+
+        // conditional test: < 0
+        radius = -30;
+        set = obj.setRadius(radius);
+        assertFalse(set);
+
+        // method tests
         assertTrue(obj.setRadius(0));
         assertTrue(obj.setRadius(2300));
         assertFalse(obj.setRadius(-2));
@@ -139,8 +173,8 @@ class SpherocylinderTest {
         Spherocylinder obj2 = new Spherocylinder("Example Test2", -5, 10);
         Spherocylinder obj3 = new Spherocylinder("Example Test3", 5, -10);
         Spherocylinder obj4 = new Spherocylinder("Example Test4", 5, 10);
-        assertEquals(1, obj.compareTo(obj2));
-        assertEquals(-1, obj3.compareTo(obj));
+        assertTrue(obj.compareTo(obj2) > 0);
+        assertTrue(obj3.compareTo(obj) < 0);
         assertEquals(0, obj.compareTo(obj4));
     }
 
