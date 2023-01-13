@@ -1,4 +1,4 @@
-package ObjectOrientedDesign;
+package ObjectOrientedDesign.Spherocylinder;
 
 import java.text.DecimalFormat;
 
@@ -98,8 +98,8 @@ public class Spherocylinder {
      * @return circmf
      */
     public double circumference() {
-        double circmf = 2 * Math.PI * radius;
-        return circmf;
+        return 2 * Math.PI * radius;
+
     }
 
     /**
@@ -107,8 +107,7 @@ public class Spherocylinder {
      * @return surfArea
      */
     public double surfaceArea() {
-        double surfArea = 2 * Math.PI * radius * (2 * radius + cylinderHeight);
-        return surfArea;
+        return 2 * Math.PI * radius * (2 * radius + cylinderHeight);
     }
 
     /**
@@ -116,8 +115,7 @@ public class Spherocylinder {
      * @return vol
      */
     public double volume() {
-        double vol = Math.PI * Math.pow(radius, 2) * ((4.0 / 3) * radius + cylinderHeight);
-        return vol;
+        return Math.PI * Math.pow(radius, 2) * ((4.0 / 3) * radius + cylinderHeight);
     }
 
     /**
@@ -159,11 +157,10 @@ public class Spherocylinder {
     public String toString() {
 
         DecimalFormat fmt = new DecimalFormat("#,##0.0##");
-        String output = "Spherocylinder \"" + label + "\" with radius "
+        return "Spherocylinder \"" + label + "\" with radius "
                 + radius + " and cylinder height " + fmt.format(cylinderHeight)
                 + " has:\n\tcircumference = " + fmt.format(circumference()) + " units"
                 + "\n\tsurface area = " + fmt.format(surfaceArea()) + " square units"
                 + "\n\tvolume = " + fmt.format(volume()) + " cubic units";
-        return output;
     }
 }
