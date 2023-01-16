@@ -1,4 +1,4 @@
-package ObjectOrientedDesign.Spherocylinder;
+package ObjectOrientedDesign1.Spherocylinder;
 
 import org.junit.jupiter.api.*;
 import java.util.ArrayList;

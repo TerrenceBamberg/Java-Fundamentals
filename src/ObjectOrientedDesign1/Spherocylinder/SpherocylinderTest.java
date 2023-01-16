@@ -1,4 +1,4 @@
-package ObjectOrientedDesign.Spherocylinder;
+package ObjectOrientedDesign1.Spherocylinder;
 
 import static org.junit.jupiter.api.Assertions.*;
 
