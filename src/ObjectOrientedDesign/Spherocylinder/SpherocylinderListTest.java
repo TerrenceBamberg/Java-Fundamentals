@@ -1,9 +1,14 @@
 package ObjectOrientedDesign.Spherocylinder;
 
 import org.junit.jupiter.api.*;
-
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * Spherocylinder List test class.
+ * @author Terrence Bamberg - CPSC 1223 AO2
+ * @version 11/10/2019
+ */
 
 class SpherocylinderListTest {
 
@@ -129,7 +134,7 @@ class SpherocylinderListTest {
         assertEquals(0, sL.averageVolume(), 0.001);
     }
 
-    /** Test for averageSurfaceArea with -1. **/
+    /** Test for averageVolume with -1. **/
     @Test public void averageVolumeTest3() {
         Spherocylinder s1 = new Spherocylinder("Ex1", 1, 1);
         Spherocylinder s2 = new Spherocylinder("Ex2", 1, 1);
@@ -139,7 +144,7 @@ class SpherocylinderListTest {
         sObjArray.add(s2);
         sObjArray.add(s3);
         SpherocylinderList sL = new SpherocylinderList("List1", sObjArray, -1);
-        assertEquals(0, sL.averageSurfaceArea(), 0.001);
+        assertEquals(0, sL.averageVolume(), 0.001);
     }
 
     /** Test for toString. **/
@@ -278,7 +283,10 @@ class SpherocylinderListTest {
         sObjArray.add(s3);
         SpherocylinderList sL = new SpherocylinderList("List1", sObjArray, 3);
         assertEquals(s3, sL.findSpherocylinderWithLargestVolume());
+    }
 
+    /** Test for findSpherocylinderWithLargestVolume null. **/
+    @Test public void findSpherocylinderWithLargestVolumeTest2() {
         ArrayList<Spherocylinder> sObjArray2 = new ArrayList<>();
         SpherocylinderList sL2 = new SpherocylinderList("List1", sObjArray2, 0);
         assertNull(sL2.findSpherocylinderWithLargestVolume());

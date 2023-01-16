@@ -8,7 +8,6 @@ import java.util.ArrayList;
  * spherocylinder array objects.
  * Keeps track of the number of Spherocylinder objects in the array.
  *
- * Project 3: Spherocylinder with JUnit Tests – Part 3
  * @author Terrence Bamberg - CPSC 1223 AO2
  * @version 11/10/2019
  */
@@ -27,7 +26,6 @@ public class SpherocylinderList {
      */
     public SpherocylinderList(String sListNameIn, ArrayList<Spherocylinder>  sListIn,
                               int numberOfSpherocylindersIn) {
-
         sListName = sListNameIn;
         sList = sListIn;
         numberOfSpherocylinders = numberOfSpherocylindersIn;
@@ -46,7 +44,6 @@ public class SpherocylinderList {
      * @return the number of Spherocylinder
      */
     public int numberOfSpherocylinders() {
-
         return numberOfSpherocylinders;
     }
 
@@ -57,7 +54,6 @@ public class SpherocylinderList {
      */
     public double totalSurfaceArea() {
         double total = 0;
-
         for(Spherocylinder sObj : sList) {
             total += sObj.surfaceArea();
         }
@@ -71,7 +67,6 @@ public class SpherocylinderList {
      */
     public double totalVolume() {
         double total = 0;
-
         for(Spherocylinder sObj : sList) {
             total += sObj.volume();
         }
@@ -85,7 +80,6 @@ public class SpherocylinderList {
     public double averageSurfaceArea() {
         double totalSA = 0;
         double averageSA;
-
         for(Spherocylinder sObj : sList) {
             totalSA += sObj.surfaceArea();
         }
@@ -103,7 +97,6 @@ public class SpherocylinderList {
     public double averageVolume() {
         double totalVol = 0;
         double averageVol;
-
         for(Spherocylinder sObj :  sList) {
             totalVol += sObj.volume();
         }
@@ -216,5 +209,4 @@ public class SpherocylinderList {
         }
         return largest;
     }
-
 }
