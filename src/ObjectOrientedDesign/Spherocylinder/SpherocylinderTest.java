@@ -28,18 +28,18 @@ class SpherocylinderTest {
 
         // conditional test: valid
         String label = "Example Test2";
-        boolean set = obj.setLabel(label);
-        assertTrue(set);
+        boolean isSet = obj.setLabel(label);
+        assertTrue(isSet);
 
         // conditional test: null
         label = null;
-        set = obj.setLabel(label);
-        assertFalse(set);
+        isSet = obj.setLabel(label);
+        assertFalse(isSet);
 
         // conditional test: empty string
         label = "";
-        set = obj.setLabel(label);
-        assertFalse(set);
+        isSet = obj.setLabel(label);
+        assertFalse(isSet);
 
         // method tests
         assertTrue(obj.setLabel("New Label Test"));
@@ -61,18 +61,18 @@ class SpherocylinderTest {
 
         // conditional test: > 0
         double radius = 22;
-        boolean set = obj.setRadius(radius);
-        assertTrue(set);
+        boolean isSet = obj.setRadius(radius);
+        assertTrue(isSet);
 
         // conditional test: == 0
         radius = 0;
-        set = obj.setRadius(radius);
-        assertTrue(set);
+        isSet = obj.setRadius(radius);
+        assertTrue(isSet);
 
         // conditional test: < 0
         radius = -30;
-        set = obj.setRadius(radius);
-        assertFalse(set);
+        isSet = obj.setRadius(radius);
+        assertFalse(isSet);
 
         // method tests
         assertTrue(obj.setRadius(0));
@@ -91,6 +91,7 @@ class SpherocylinderTest {
     @org.junit.jupiter.api.Test
     void setCylinderHeight() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
+
         assertTrue(obj.setCylinderHeight(0));
         assertTrue(obj.setCylinderHeight(1000));
         assertFalse(obj.setCylinderHeight(-320));
@@ -170,8 +171,8 @@ class SpherocylinderTest {
     @org.junit.jupiter.api.Test
     void testCompareTo() {
         Spherocylinder obj = new Spherocylinder("Example Test", 5, 10);
-        Spherocylinder obj2 = new Spherocylinder("Example Test2", -5, 10);
-        Spherocylinder obj3 = new Spherocylinder("Example Test3", 5, -10);
+        Spherocylinder obj2 = new Spherocylinder("Example Test2", -6, 21);
+        Spherocylinder obj3 = new Spherocylinder("Example Test3", 16, -7);
         Spherocylinder obj4 = new Spherocylinder("Example Test4", 5, 10);
         assertTrue(obj.compareTo(obj2) > 0);
         assertTrue(obj3.compareTo(obj) < 0);
