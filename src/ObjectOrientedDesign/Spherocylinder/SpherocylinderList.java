@@ -15,7 +15,7 @@ public class SpherocylinderList {
 
     private final String sListName;
     private final ArrayList<Spherocylinder> sList;
-    private int numberOfSpherocylinders;
+    private static int numberOfSpherocylinders;
 
     /**
      * Constructor takes in name of list, an array of

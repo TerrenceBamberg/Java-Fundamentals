@@ -137,7 +137,7 @@ class SpherocylinderTest {
     /** Spherocylinder count test **/
     @org.junit.jupiter.api.Test
     void getCount() {
-        assertEquals(22, Spherocylinder.getCount());
+        assertEquals(26, Spherocylinder.getCount());
     }
 
     /** Reset spherocylinder count test **/
