@@ -12,9 +12,8 @@ import java.util.ArrayList;
  * @version 11/10/2019
  */
 public class SpherocylinderList {
-
-    private final String sListName;
-    private final ArrayList<Spherocylinder> sList;
+    private String sListName;
+    private ArrayList<Spherocylinder> sList;
     private static int numberOfSpherocylinders;
 
     /**
