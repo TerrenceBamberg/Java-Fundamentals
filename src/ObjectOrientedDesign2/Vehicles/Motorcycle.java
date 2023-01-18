@@ -5,6 +5,9 @@ import java.text.DecimalFormat;
 /**
  * Represents a motorcycle with owner name year, make, model, value,
  * alt fuel and engine size.
+ *
+ * @author Terrence Bamberg - CPSC 1223 AO2
+ *
  **/
 public class Motorcycle extends Vehicle {
 
@@ -57,10 +60,7 @@ public class Motorcycle extends Vehicle {
      * @return the tax to use after calculation of
      * value, alt fuel tax and/or large bike tax rate
      *
-     * @author Terrence Bamberg - CPSC 1223 AO2
-     *
      */
-
     @Override
     public double useTax() {
         double total;
