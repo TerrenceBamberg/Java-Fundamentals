@@ -35,8 +35,9 @@ public class Motorcycle extends Vehicle {
             throw new NegativeValueException();
         }
     }
+
     /**
-     * Method to get engine size of motorcycle.
+     * Gets engine size of motorcycle.
      * @return engineSize
      */
     public double getEngineSize() {
@@ -44,7 +45,7 @@ public class Motorcycle extends Vehicle {
     }
 
     /**
-     * Method to set engine size of motorcycle.
+     * Sets engine size of motorcycle.
      * @param engineSizeIn for size to set
      */
     public void setEngineSize(double engineSizeIn) {
@@ -52,13 +53,14 @@ public class Motorcycle extends Vehicle {
     }
 
     /**
-     * Method to calculate the tax rate based off of engine size.
+     * Calculates the tax rate based off of engine size.
      * @return the tax to use after calculation of
      * value, alt fuel tax and/or large bike tax rate
      *
      * @author Terrence Bamberg - CPSC 1223 AO2
      *
      */
+
     @Override
     public double useTax() {
         double total;
