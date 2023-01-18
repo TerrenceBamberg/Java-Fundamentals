@@ -59,7 +59,6 @@ public class Motorcycle extends Vehicle {
      * Calculates the tax rate based off of engine size.
      * @return the tax to use after calculation of
      * value, alt fuel tax and/or large bike tax rate
-     *
      */
     @Override
     public double useTax() {
