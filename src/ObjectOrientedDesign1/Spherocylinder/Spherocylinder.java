@@ -101,7 +101,6 @@ public class Spherocylinder implements Comparable<Spherocylinder> {
      */
     public double circumference() {
         return 2 * Math.PI * radius;
-
     }
 
     /**
@@ -143,11 +142,10 @@ public class Spherocylinder implements Comparable<Spherocylinder> {
      */
     @Override
     public boolean equals(Object sObj) {
-        if (!(sObj instanceof Spherocylinder)) {
+        if (!(sObj instanceof Spherocylinder sp)) {
             return false;
         }
         else {
-            Spherocylinder sp = (Spherocylinder) sObj;
             return (label.equalsIgnoreCase(sp.getLabel())
                     && Math.abs(radius - sp.getRadius()) < .000001
                     && Math.abs(cylinderHeight - sp.getCylinderHeight()) < .000001);
@@ -170,15 +168,7 @@ public class Spherocylinder implements Comparable<Spherocylinder> {
      */
     @Override
     public int compareTo(Spherocylinder obj) {
-        if (this.volume() < obj.volume()) {
-            return -1;
-        }
-        else if (this.volume() > obj.volume()) {
-            return 1;
-        }
-        else {
-            return 0;
-        }
+        return Double.compare(this.volume(), obj.volume());
     }
 
     /**
