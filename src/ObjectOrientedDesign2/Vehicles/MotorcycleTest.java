@@ -42,14 +42,14 @@ class MotorcycleTest {
     void useTaxAltFuel() throws NegativeValueException {
         Motorcycle bike3 = new Motorcycle("Remes, Joel",
                 "2013 Honda PCX", 3790, true, 160);
-        assertEquals(9.475, bike3.useTax(), 0.00001, "Error in useTax: ");
+        assertEquals(9.475, bike3.useTax(), 0.00001, "Error in useTaxAltFuel: ");
     }
 
     @Test
-    void useTaxThreshold() throws NegativeValueException {
+    void useTaxLargeBike() throws NegativeValueException {
         Motorcycle bike4 = new Motorcycle("Hendrix, Perry",
                 "2017 Indian Challenger Dark Horse", 35000, false, 1768);
-        assertEquals(700, bike4.useTax(), 0.00001, "Error in useTax: ");
+        assertEquals(700, bike4.useTax(), 0.00001, "Error in useTaxLargeBike: ");
     }
 
     @Test
@@ -59,7 +59,7 @@ class MotorcycleTest {
         assertEquals("""
                 Grants, Payton: Motorcycle 2018 BMW C400 GT
                 Value: $8,245.00 Use Tax: $41.23
-                with Tax Rate: 0.50%""", bike2.toString());
+                with Tax Rate: 0.50%""", bike2.toString(), "Error in testToString: ");
     }
 
     @Test
@@ -69,7 +69,8 @@ class MotorcycleTest {
         assertEquals("""
                 Brando, Marlon: Motorcycle 1964 Harley-Davidson Duo-Glide
                 Value: $14,000.00 Use Tax: $280.00
-                with Tax Rate: 0.50% Large Bike Tax Rate: 1.50%""", bike1.toString());
+                with Tax Rate: 0.50% Large Bike Tax Rate: 1.50%""", bike1.toString(),
+                "Error in testToStringLargeBike: ");
     }
 
     @Test
@@ -79,7 +80,8 @@ class MotorcycleTest {
         assertEquals("""
                 Price, Jason: Motorcycle 2016 Yamaha Bolt R (Alternative Fuel)
                 Value: $10,000.00 Use Tax: $175.00
-                with Tax Rate: 0.25% Large Bike Tax Rate: 1.50%""", bike5.toString());
+                with Tax Rate: 0.25% Large Bike Tax Rate: 1.50%""", bike5.toString(),
+                "Error in testToStringLargeBikeAltFuel: ");
     }
 
     @Test
@@ -89,6 +91,6 @@ class MotorcycleTest {
         assertEquals("""
                 Remes, Joel: Motorcycle 2013 Honda PCX (Alternative Fuel)
                 Value: $3,790.00 Use Tax: $9.47
-                with Tax Rate: 0.25%""", bike3.toString());
+                with Tax Rate: 0.25%""", bike3.toString(), "Error in testToStringAltFuel: ");
     }
 }

@@ -148,7 +148,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     /**
      * String representation of vehicle object. 2 variations are printed
      * depending on altFuel status.
-     *
      * @return output string
      */
     @Override
@@ -172,7 +171,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     }
 
     /**
-     * @param obj the other object
+     * @param obj object to compare
      * @return false if not a vehicle and returns the object if it is
      */
     @Override

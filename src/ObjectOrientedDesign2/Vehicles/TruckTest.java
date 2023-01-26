@@ -18,15 +18,15 @@ class TruckTest {
 
     @Test
     void getTons() throws NegativeValueException {
-        Truck truck1 = new Truck("Jones, Jerry", "2015 Chevy Silverado", 40000.00, true, 3);
+        Truck truck1 = new Truck("Jones, Jerry", "2015 Chevy Silverado", 40000.00, false, 3);
         assertEquals(3, truck1.getTons(), 0.00001, "Error in getTons: ");
     }
 
     @Test
     void setTons() throws NegativeValueException {
-        Truck truck1 = new Truck("Jones, Jerry", "2015 Chevy Silverado", 40000.00, true, 3);
+        Truck truck1 = new Truck("Jones, Jerry", "2015 Chevy Silverado", 40000.00, false, 3);
         truck1.setTons(4);
-        assertEquals(4, truck1.getTons(), 0.00001, "Error in getTons: ");
+        assertEquals(4, truck1.getTons(), 0.00001, "Error in setTons: ");
     }
 
     @Test
@@ -38,19 +38,19 @@ class TruckTest {
     @Test
     void useTaxAltFuel() throws NegativeValueException {
         Truck truck2 = new Truck("Mender, Blake", "2015 Ford Ranger", 27000.00, true, 1);
-        assertEquals(270.0, truck2.useTax(), 0.00001, "Error in useTax: ");
+        assertEquals(270.0, truck2.useTax(), 0.00001, "Error in useTaxAltFuel: ");
     }
 
     @Test
-    void useTaxThreshold() throws NegativeValueException {
+    void useTaxLargeTruck() throws NegativeValueException {
         Truck truck3 = new Truck("Mender, Blake", "2018 Ford Raptor", 82000.00, false, 1);
-        assertEquals(1640.0, truck3.useTax(), 0.00001, "Error in useTax: ");
+        assertEquals(1640.0, truck3.useTax(), 0.00001, "Error in useTaxLargeTruck: ");
     }
 
     @Test
-    void useTaxThresholdAltFuel() throws NegativeValueException {
+    void useTaxLargeTruckAltFuel() throws NegativeValueException {
         Truck truck4 = new Truck("Pront, Chris", "2019 Rivian R1T", 78000.00, true, 1);
-        assertEquals(780.0, truck4.useTax(), 0.00001, "Error in useTax: ");
+        assertEquals(780.0, truck4.useTax(), 0.00001, "Error in useTaxLargeTruckAltFuel: ");
     }
 
     @Test
@@ -68,7 +68,7 @@ class TruckTest {
         assertEquals("""
                 Freeman, Joseph: Truck 2014 F350
                 Value: $90,000.00 Use Tax: $4,500.00
-                with Tax Rate: 2.00% Large Truck Tax Rate: 3.00%""", truck5.toString());
+                with Tax Rate: 2.00% Large Truck Tax Rate: 3.00%""", truck5.toString(), "Error in testToStringLargeTruck: ");
     }
 
     @Test
@@ -77,7 +77,7 @@ class TruckTest {
         assertEquals("""
                 Jones, Jerry: Truck 2019 Rivian R1T (Alternative Fuel)
                 Value: $78,000.00 Use Tax: $780.00
-                with Tax Rate: 1.00%""", truck1.toString());
+                with Tax Rate: 1.00%""", truck1.toString(), "Error in testToStringAltFuel: ");
     }
 
     @Test
@@ -86,6 +86,6 @@ class TruckTest {
         assertEquals("""
                 Reed, Logan: Truck 2012 F250e (Alternative Fuel)
                 Value: $92,000.00 Use Tax: $3,680.00
-                with Tax Rate: 1.00% Large Truck Tax Rate: 3.00%""", truck6.toString());
+                with Tax Rate: 1.00% Large Truck Tax Rate: 3.00%""", truck6.toString(), "Error in testToStringLargeTruckAltFuel: ");
     }
 }

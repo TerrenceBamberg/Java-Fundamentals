@@ -69,7 +69,7 @@ public class SemiTractorTrailer extends Truck {
      */
     public String toString() {
         String output = super.toString();
-        DecimalFormat fmt = new DecimalFormat("0.0%");
+        DecimalFormat fmt = new DecimalFormat("0.00%");
 
         output += " Axle Tax Rate: " + fmt.format(axles * PER_AXLE_TAX_RATE);
         return output;

@@ -26,7 +26,7 @@ class CarTest {
     void getOwner() throws NegativeValueException {
         Car car1 = new Car("Smith, Jack", "2015 Mercedes-Benz Coupe",
                 110000, true);
-        assertEquals("Smith, Jack", car1.getOwner(), "Error in getOwner!");
+        assertEquals("Smith, Jack", car1.getOwner(), "Error in getOwner: ");
     }
 
     @Test
@@ -83,18 +83,18 @@ class CarTest {
         Car car1 = new Car("Smith, Jack", "2015 Mercedes-Benz Coupe",
                 110000, false);
         car1.setAltFuel(true);
-        assertTrue(car1.getAltFuel(), "Error in setAlternativeFuel: ");
+        assertTrue(car1.getAltFuel(), "Error in setAltFuel: ");
     }
 
     @Test
     void getVehicleCount() {
-        assertEquals(7, Vehicle.getVehicleCount());
+        assertEquals(5, Vehicle.getVehicleCount(), "Error in getVehicleCount: ");
     }
 
     @Test
     void resetVehicleCount() {
         Vehicle.resetVehicleCount();
-        assertEquals(0, Vehicle.getVehicleCount());
+        assertEquals(0, Vehicle.getVehicleCount(), "Error in resetVehicleCount: ");
     }
 
     @Test
@@ -105,17 +105,11 @@ class CarTest {
                 111000, false);
         Car car3 = new Car("Lee, Jason", "2015 Mercedes-Benz Coupe",
                 68999, true);
-        assertEquals(car1, car2, "Error in equals: ");
-        assertNotEquals(car1, car3, "Error in equals: ");
-    }
-
-    @Test
-    void testEqualsNotACar() throws NegativeValueException {
-        Car car1 = new Car("Smith, John", "2017 Honda Accord",
-                111000, false);
         Motorcycle bike1 = new Motorcycle("Brando, Marlon",
                 "1964 Harley-Davidson Sportster", 14000, false, 750);
-        assertNotEquals(car1, bike1);
+        assertEquals(car1, car2, "Error in testEquals (equals): ");
+        assertNotEquals(car1, car3, "Error in testEquals (not equals): ");
+        assertNotEquals(car1, bike1, "Error in testEquals (not a car): ");
     }
 
     @Test
@@ -124,7 +118,7 @@ class CarTest {
                 111000, false);
         Car car2 = new Car("Smith, John", "2017 Honda Accord",
                 111000, false);
-        assertEquals(car1.hashCode(), car2.hashCode());
+        assertEquals(car1.hashCode(), car2.hashCode(), "Error in testHashCode: ");
     }
 
     @Test
@@ -138,14 +132,14 @@ class CarTest {
     void useTaxAltFuel() throws NegativeValueException {
         Car car4 = new Car("Smith, Jack", "2015 Mercedes-Benz Coupe",
             45000, true);
-        assertEquals( 225.00, car4.useTax(), 0.0001, "Error in useTax: ");
+        assertEquals( 225.00, car4.useTax(), 0.0001, "Error in useTaxAltFuel: ");
     }
 
     @Test
     void useTaxThreshold() throws NegativeValueException {
         Car car4 = new Car("Smith, Jack", "2019 Rolls Royce Phantom",
                 320000, false);
-        assertEquals( 9600.00, car4.useTax(), 0.0001, "Error in useTax: ");
+        assertEquals( 9600.00, car4.useTax(), 0.0001, "Error in useTaxThreshold: ");
     }
 
     @Test
@@ -155,17 +149,18 @@ class CarTest {
         assertEquals("""
                 Davis, Brian: Car 2018 Ford Fusion (Alternative Fuel)
                 Value: $45,000.00 Use Tax: $225.00
-                with Tax Rate: 0.5%""", car1.toString());
+                with Tax Rate: 0.5%""", car1.toString(), "Error in toStringTest: ");
     }
 
     @Test
-    void toStringLuxuryThreshold() throws NegativeValueException {
+    void toStringLuxury() throws NegativeValueException {
         Car car1 = new Car("Smith, Jack", "2015 Mercedes-Benz Coupe",
                 110000, false);
         assertEquals("""
                 Smith, Jack: Car 2015 Mercedes-Benz Coupe
                 Value: $110,000.00 Use Tax: $3,300.00
-                with Tax Rate: 1.0% Luxury Tax Rate: 2.0%""", car1.toString());
+                with Tax Rate: 1.0% Luxury Tax Rate: 2.0%""", car1.toString(),
+                "Error in toStringLuxury: ");
     }
 
     @Test
@@ -175,16 +170,17 @@ class CarTest {
         assertEquals("""
                 Davis, Brian: Car 2018 Ford Fusion (Alternative Fuel)
                 Value: $45,000.00 Use Tax: $225.00
-                with Tax Rate: 0.5%""", car1.toString());
+                with Tax Rate: 0.5%""", car1.toString(), "Error in toStringAltFuel: ");
     }
 
     @Test
-    void toStringAltFuelLuxuryThreshold() throws NegativeValueException {
+    void toStringAltFuelLuxury() throws NegativeValueException {
         Car car1 = new Car("Smith, Jack", "2015 Mercedes-Benz Coupe",
                 110000, true);
         assertEquals("""
                 Smith, Jack: Car 2015 Mercedes-Benz Coupe (Alternative Fuel)
                 Value: $110,000.00 Use Tax: $2,750.00
-                with Tax Rate: 0.5% Luxury Tax Rate: 2.0%""", car1.toString());
+                with Tax Rate: 0.5% Luxury Tax Rate: 2.0%""", car1.toString(),
+                "Error in toStringAltFuelLuxury: ");
     }
 }
